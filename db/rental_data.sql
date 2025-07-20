@@ -23,8 +23,8 @@ CREATE TABLE rental_data (
     city VARCHAR(100),
     latitude FLOAT,
     longitude FLOAT,
-    price DECIMAL(15,2),
-    verificationDate DATE,
+    price INT,
+    verificationDate VARCHAR(50),
     SecurityDeposit VARCHAR(100),
     Status VARCHAR(100)
 );
