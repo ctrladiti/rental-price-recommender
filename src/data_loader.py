@@ -14,8 +14,7 @@ def insert_data(filepath, city):
         query = """
         INSERT INTO rental_data (
             house_type, house_size, location, city, latitude, longitude,
-            price, currency, numBathrooms, numBalconies, isNegotiable,
-            priceSqFt, verificationDate, description, SecurityDeposit, Status
+            price, numBathrooms, verificationDate, SecurityDeposit, Status
         ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         """
 
@@ -27,13 +26,8 @@ def insert_data(filepath, city):
             row['latitude'],
             row['longitude'],
             row['price'],
-            row['currency'],
             row['numBathrooms'],
-            row['numBalconies'],
-            row['isNegotiable'],
-            row['priceSqFt'],
             row['verificationDate'],
-            row['description'],
             row['SecurityDeposit'],
             row['Status']
         )
