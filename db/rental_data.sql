@@ -24,17 +24,13 @@ CREATE TABLE rental_data (
     latitude FLOAT,
     longitude FLOAT,
     price DECIMAL(15,2),
-    currency VARCHAR(10),
-    numBathrooms INT,
-    numBalconies INT,
-    isNegotiable BOOLEAN,
-    priceSqFt DECIMAL(10,2),
     verificationDate DATE,
-    description TEXT,
     SecurityDeposit VARCHAR(100),
     Status VARCHAR(100)
 );
 
 SHOW TABLES;
 
-DROP TABLE listings;
+DESC rental_data;
+
+DROP TABLE rental_data;
