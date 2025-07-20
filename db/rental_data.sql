@@ -24,6 +24,7 @@ CREATE TABLE rental_data (
     latitude FLOAT,
     longitude FLOAT,
     price INT,
+    numBathrooms INT,
     verificationDate VARCHAR(50),
     SecurityDeposit VARCHAR(100),
     Status VARCHAR(100)
@@ -32,5 +33,9 @@ CREATE TABLE rental_data (
 SHOW TABLES;
 
 DESC rental_data;
+
+SELECT * FROM rental_data;
+
+SELECT COUNT(id) FROM rental_data;
 
 DROP TABLE rental_data;
