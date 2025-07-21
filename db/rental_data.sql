@@ -31,4 +31,6 @@ SELECT DISTINCT location from rental_data;
 
 SELECT DISTINCT house_type from rental_data;
 
-SELECT DISTINCT house_size from rental_data;
+SELECT DISTINCT house_format from rental_data;
+
+SELECT DISTINCT Status from rental_data;

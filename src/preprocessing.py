@@ -1,99 +1,52 @@
-import pandas as pd
-import numpy as np
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler, OneHotEncoder
-from sklearn.compose import ColumnTransformer
-from sklearn.pipeline import Pipeline
+import streamlit as st
 import joblib
-import re
-import os
+import pandas as pd
+from src.preprocessing_sql import preprocess_input_data  # Preprocess function
+from src.db_connect import load_data_from_sql  # Optional: to get schema/column names
 
+# Load model
+model = joblib.load("models/best_model.pkl")
 
-def clean_house_size(value):
-    if isinstance(value, str):
-        match = re.search(r'\d+', value.replace(',', ''))
-        if match:
-            return float(match.group())
-    return value
+# Streamlit UI
+st.set_page_config(page_title="Rental Price Recommender", layout="centered")
+st.title("🏠 Rental Price Recommender")
+st.markdown("Enter the details below to estimate the rental price:")
 
+# Input fields
+house_type = st.selectbox("Property Type", [
+    "Studio Apartment", "Independent Floor", "Independent House", "Apartment", "Villa", "Penthouse"
+])
 
-def clean_security_deposit(value):
-    if isinstance(value, str):
-        value = value.strip()
-        if value.lower() == "no deposit":
-            return 0.0
-        value = re.sub(r"[^\d]", "", value)  # Remove ₹, commas, etc.
-        if value:
-            return float(value)
-        return np.nan
-    return value
+house_format = st.selectbox("House Format (e.g., BHK)", [
+    "1 RK", "1 BHK", "2 BHK", "3 BHK", "4 BHK", "5 BHK",
+    "6 BHK", "7 BHK", "8 BHK", "9 BHK", "10 BHK", "12 BHK"
+])
 
+status = st.selectbox("Furnishing Status", ["Furnished", "Semi-Furnished", "Unfurnished"])
 
-def load_data(filepath):
-    df = pd.read_csv(filepath)
+house_size = st.number_input("House Size (in sqft)", min_value=100, max_value=5000, step=50)
+location = st.text_input("Location")
+city = st.selectbox("City", ["Delhi", "Mumbai", "Pune"])
+num_bathrooms = st.selectbox("Number of Bathrooms", [1, 2, 3, 4])
+security_deposit = st.number_input("Security Deposit (₹)", min_value=0)
 
-    # Drop irrelevant columns if they exist
-    df.drop(columns=["city"], inplace=True, errors='ignore')
+# Create DataFrame
+input_data = pd.DataFrame([{
+    "house_type": house_type,
+    "house_format": house_format,
+    "Status": status,
+    "house_size": house_size,
+    "location": location,
+    "city": city,
+    "numBathrooms": num_bathrooms,
+    "SecurityDeposit": security_deposit
+}])
 
-    # Clean columns
-    df['house_size'] = df['house_size'].apply(clean_house_size)
-    df['SecurityDeposit'] = df['SecurityDeposit'].apply(clean_security_deposit)
-
-    # Drop rows with missing target
-    df.dropna(subset=["price"], inplace=True)
-
-    # Drop rows where essential features are still missing
-    df.dropna(subset=["house_size", "SecurityDeposit", "numBathrooms"], inplace=True)
-
-    return df
-
-
-def preprocess_data(df):
-    # Separate features and target
-    X = df.drop("price", axis=1)
-    y = df["price"]
-
-    # Identify columns
-    numeric_features = ["house_size", "numBathrooms", "SecurityDeposit"]
-    categorical_features = ["house_format","house_type", "location", "Status"]
-
-    # Build transformers
-    numeric_transformer = StandardScaler()
-    categorical_transformer = OneHotEncoder(handle_unknown='ignore', sparse_output=False)
-
-    # Column transformer
-    preprocessor = ColumnTransformer(
-        transformers=[
-            ("num", numeric_transformer, numeric_features),
-            ("cat", categorical_transformer, categorical_features)
-        ]
-    )
-
-    # Create pipeline
-    pipeline = Pipeline(steps=[('preprocessor', preprocessor)])
-
-    # Fit and transform
-    X_processed = pipeline.fit_transform(X)
-
-    # Save pipeline
-    os.makedirs("models", exist_ok=True)
-    joblib.dump(pipeline, "models/preprocessing_pipeline.pkl")
-
-    return X_processed, y
-
-
-def split_data(X, y, test_size=0.2, random_state=42):
-    return train_test_split(X, y, test_size=test_size, random_state=random_state)
-
-
-if __name__ == "__main__":
-    df = load_data("data/Indian_housing_Delhi_data.csv")
-    print(f"✅ Data loaded with {df.shape[0]} rows and {df.shape[1]} columns.")
-
-    X, y = preprocess_data(df)
-    X_train, X_test, y_train, y_test = split_data(X, y)
-
-    print("✅ Data preprocessing complete.")
-    print("🔹 X_train shape:", X_train.shape)
-    print("🔹 X_test shape:", X_test.shape)
-    print("📦 Preprocessing pipeline saved to 'models/preprocessing_pipeline.pkl'")
+# Prediction
+if st.button("Predict Rent"):
+    try:
+        X_preprocessed, _ = preprocess_input_data(input_data)
+        prediction = model.predict(X_preprocessed)[0]
+        st.success(f"Estimated Rent: ₹{round(prediction):,}")
+    except Exception as e:
+        st.error(f"An error occurred during prediction: {str(e)}")
