@@ -2,33 +2,20 @@ CREATE DATABASE IF NOT EXISTS rental_data;
 
 USE rental_data;
 
-CREATE TABLE IF NOT EXISTS listings (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    city VARCHAR(100),
-    area VARCHAR(100),
-    bhk INT,
-    sqft INT,
-    bathrooms INT,
-    furnished_status VARCHAR(20),
-    amenities TEXT,
-    rent INT,
-    date_listed DATE
-);
-
 CREATE TABLE rental_data (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    house_format VARCHAR(10),
     house_type VARCHAR(255),
-    house_size VARCHAR(255),
+    house_size INT,
     location VARCHAR(255),
-    city VARCHAR(100),
-    latitude FLOAT,
-    longitude FLOAT,
+    city VARCHAR(50),
     price INT,
     numBathrooms INT,
-    verificationDate VARCHAR(50),
-    SecurityDeposit VARCHAR(100),
+    SecurityDeposit INT,
     Status VARCHAR(100)
 );
+
+DROP TABLE rental_data;
 
 SHOW TABLES;
 
@@ -37,8 +24,6 @@ DESC rental_data;
 SELECT * FROM rental_data;
 
 SELECT COUNT(id) FROM rental_data;
-
-DROP TABLE rental_data;
 
 SELECT MIN(numBathrooms), MAX(numBathrooms) FROM rental_data;
 

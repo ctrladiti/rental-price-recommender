@@ -20,21 +20,18 @@ def insert_data(filepath, city):
 
         query = """
         INSERT INTO rental_data (
-            house_type, house_size, location, city, latitude, longitude,
-            price, numBathrooms, verificationDate, SecurityDeposit, Status
-        ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            house_format, house_type, house_size, location, city, price, numBathrooms, SecurityDeposit, Status
+        ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
         """
 
         values = (
+            row.get('house_format'),
             row.get('house_type'),
             row.get('house_size'),
             row.get('location'),
             row.get('city'),
-            row.get('latitude'),
-            row.get('longitude'),
             row.get('price'),
             row.get('numBathrooms'),
-            row.get('verificationDate'),
             row.get('SecurityDeposit'),
             row.get('Status')
         )

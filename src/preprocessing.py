@@ -33,7 +33,7 @@ def load_data(filepath):
     df = pd.read_csv(filepath)
 
     # Drop irrelevant columns if they exist
-    df.drop(columns=["city", "verificationDate"], inplace=True, errors='ignore')
+    df.drop(columns=["city"], inplace=True, errors='ignore')
 
     # Clean columns
     df['house_size'] = df['house_size'].apply(clean_house_size)
@@ -43,7 +43,7 @@ def load_data(filepath):
     df.dropna(subset=["price"], inplace=True)
 
     # Drop rows where essential features are still missing
-    df.dropna(subset=["house_size", "SecurityDeposit", "numBathrooms", "latitude", "longitude"], inplace=True)
+    df.dropna(subset=["house_size", "SecurityDeposit", "numBathrooms"], inplace=True)
 
     return df
 
@@ -54,8 +54,8 @@ def preprocess_data(df):
     y = df["price"]
 
     # Identify columns
-    numeric_features = ["house_size", "latitude", "longitude", "numBathrooms", "SecurityDeposit"]
-    categorical_features = ["house_type", "location", "Status"]
+    numeric_features = ["house_size", "numBathrooms", "SecurityDeposit"]
+    categorical_features = ["house_format","house_type", "location", "Status"]
 
     # Build transformers
     numeric_transformer = StandardScaler()
