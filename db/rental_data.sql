@@ -39,3 +39,11 @@ SELECT * FROM rental_data;
 SELECT COUNT(id) FROM rental_data;
 
 DROP TABLE rental_data;
+
+SELECT MIN(numBathrooms), MAX(numBathrooms) FROM rental_data;
+
+SELECT DISTINCT location from rental_data;
+
+SELECT DISTINCT house_type from rental_data;
+
+SELECT DISTINCT house_size from rental_data;

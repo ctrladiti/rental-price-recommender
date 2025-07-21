@@ -1,138 +1,140 @@
-# 🏠 Rental Price Recommendation System for Urban Areas
+# 🏙️ Rental Price Recommendation System for Urban Areas
 
-This project aims to analyze and predict rental prices across major Indian metropolitan cities using real-world housing datasets. It integrates **MySQL** for data storage, **Python (Pandas & Scikit-learn)** for processing and modeling, and supports a modular and scalable architecture.
+A data-driven machine learning solution to predict residential rental prices in major Indian cities (Delhi, Mumbai, Pune) based on area, square footage, house type, amenities, and more.
 
 ---
 
-## 📁 Project Structure
+## 📌 Overview
+
+With rising urban housing demands, estimating fair rental prices is challenging. This project analyzes rental housing datasets and predicts accurate rent prices using regression models trained on location, house features, and amenities.
+
+---
+
+## 🎯 Key Features
+
+- 📊 Exploratory Data Analysis from MySQL database
+- 🧹 Data preprocessing with pipelines (encoding, imputation, scaling)
+- 🤖 Model comparison (Linear Regression, Random Forest, Gradient Boosting)
+- ✅ Selected best model using RMSE and R² metrics
+- 🧠 Rent prediction on new user input or batch CSV
+- 📈 Visualization: Actual vs Predicted + Residuals
+- 🖥️ (Optional) Streamlit-based prediction app
+
+---
+
+## 🛠️ Tech Stack
+
+| Tool                       | Purpose                       |
+| -------------------------- | ----------------------------- |
+| **Python**                 | Core programming language     |
+| **MySQL**                  | Backend data storage          |
+| **Pandas, NumPy**          | Data handling                 |
+| **Scikit-learn**           | ML modeling and evaluation    |
+| **Matplotlib, Seaborn**    | Visualizations                |
+| **Joblib**                 | Model/pipeline persistence    |
+| **Streamlit** _(optional)_ | Web interface for predictions |
+
+---
+
+## 🗂️ Project Structure
 
 ```
-rental-price-recommendation/
+
+rental-price-recommender/
 │
 ├── data/
-│   ├── Indian_housing_Delhi_data.csv
-│   ├── Indian_housing_Mumbai_data.csv
-│   └── Indian_housing_Pune_data.csv
+│ ├── X_train.pkl, X_test.pkl
+│ ├── y_train.pkl, y_test.pkl
 │
-├── db/
-│   ├── rental_data.sql
-│   └── Local MYSQL Rental.session.sql
+├── models/
+│ ├── preprocessing_pipeline.pkl
+│ ├── best_model.pkl
+│
+├── plots/
+│ ├── actual_vs_predicted.png
+│ ├── residuals_distribution.png
 │
 ├── src/
-│   ├── db_connect.py
-│   └── data_loader.py
-│
-├── main.py
-└── README.md
+│ ├── db_connect.py # SQL connection helper
+│ ├── eda_sql.py # Data exploration from MySQL
+│ ├── preprocessing_sql.py # Data cleaning & transformation
+│ ├── train_model_comparison.py # Model training & selection
+│ ├── evaluate_model.py # Final evaluation
+│ ├── predict.py # Single prediction interface
+│ ├── visualize_results.py # Diagnostic plots
+│ ├── app.py # (Optional) Streamlit UI
+
 ```
 
 ---
 
-## ✅ Features
-
-- 🚪 Loads multi-city housing rental data from CSVs.
-- 🛢️ Stores structured data into MySQL using a normalized schema.
-- 📊 Enables city-wise and area-wise rent analysis.
-- 🧠 Ready for machine learning modeling (e.g., linear regression, decision trees).
-- 🔗 Modular and easy to extend for more cities or data sources.
-
----
-
-## 🗂️ Dataset Used
-
-Combined rental listing datasets from three Indian cities:
-
-- Delhi
-- Mumbai
-- Pune
-
-Each CSV contains fields like area, BHK, size in sqft, bathrooms, furnishing status, and rent.
-
----
-
-## 🛠️ Installation & Setup
-
-### 1. Clone the Repository
+## 🚀 Setup Instructions
 
 ```bash
-git clone https://github.com/your-username/rental-price-recommendation.git
-cd rental-price-recommendation
+# 1. Clone the repository
+git clone https://github.com/Aditi-1304/rental-price-recommender.git
+cd rental-price-recommender
+
+# 2. Create virtual environment & activate
+python -m venv venv
+venv\Scripts\activate   # On Windows
+
+# 3. Install dependencies
+pip install -r requirements.txt
+
+# 4. Run training and evaluation
+python src/train_model_comparison.py
+python src/evaluate_model.py
+
+# 5. Predict using sample input
+python src/predict.py
+
+# 6. (Optional) Launch Streamlit App
+streamlit run src/app.py
 ```
 
-### 2. Create MySQL Database
+---
 
-Run the following in VS Code SQLTools or MySQL CLI:
+## 📈 Results
 
-```sql
-SOURCE db/rental_data.sql;
-```
+| Model             | RMSE (₹) | R² Score |
+| ----------------- | -------- | -------- |
+| Linear Regression | 68,200+  | 0.81     |
+| Random Forest     | 56,530   | 0.91 ✅  |
+| Gradient Boosting | 58,000   | 0.89     |
 
-This creates a database `rental_data` and a table `listings`.
+📊 **Best Model:** Random Forest
+📉 **Average Prediction Error (MAE):** ₹20,719.63
 
-### 3. Configure DB Connection
+![Actual vs Predicted](plots/actual_vs_predicted.png)
+![Residuals](plots/residuals_distribution.png)
 
-Create `src/db_connect.py` with your MySQL credentials:
+---
 
-```python
-import mysql.connector
-
-def connect():
-    return mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="your_password",
-        database="rental_data"
-    )
-```
-
-### 4. Install Dependencies
+## 🧪 Sample Prediction
 
 ```bash
-pip install pandas mysql-connector-python
+🏠 Area: Kothrud, Pune
+📐 Size: 1200 sq ft, 2 BHK
+🏗️ Type: Apartment, Semi-Furnished
+📦 Amenities: Gym, Parking
+
+➡️ Predicted Rent: ₹38,200/month
 ```
 
 ---
 
-## 🚀 Load Data
+## 📚 Future Enhancements
 
-Run the loader script to populate MySQL:
-
-```bash
-python main.py
-```
-
-This will load all 3 datasets into the `listings` table.
+- Integrate geospatial features (distance to city center, metro stations)
+- Deploy with CI/CD pipeline
+- Host app on Streamlit Cloud or Hugging Face Spaces
+- Add Explainable AI (SHAP) for feature transparency
 
 ---
 
-## 📈 Sample Analysis Queries
+## 🙋‍♀️ About Me
 
-```sql
--- Top 5 most expensive areas (avg rent)
-SELECT city, area, ROUND(AVG(rent), 2) as avg_rent
-FROM listings
-GROUP BY city, area
-ORDER BY avg_rent DESC
-LIMIT 5;
-
--- Furnishing impact
-SELECT furnished_status, ROUND(AVG(rent), 2) as avg_rent
-FROM listings
-GROUP BY furnished_status;
-```
-
----
-
-## 🔮 Future Enhancements
-
-- Predict rental prices using machine learning models
-- Add filtering by amenities and location proximity
-- Web dashboard for visualization
-- API for real-time price recommendation
-
----
-
-## 👩‍💻 Author
-
-**Aditi Agrawal** <br>
-GitHub: [Aditi-1304](https://github.com/Aditi-1304)
+👩‍💻 **Aditi Agrawal**
+Final-year Engineering student | Data Science + Web Dev Enthusiast <br>
+🔗 [GitHub](https://github.com/Aditi-1304) | [LeetCode](https://leetcode.com/u/Aditi_786/) | [HackerRank](https://www.hackerrank.com/profile/aditi786aaa)
