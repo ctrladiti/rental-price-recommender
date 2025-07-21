@@ -1,69 +1,82 @@
 # 🏙️ Rental Price Recommendation System for Urban Areas
 
-A data-driven machine learning solution to predict residential rental prices in major Indian cities (Delhi, Mumbai, Pune) based on area, square footage, house type, amenities, and more.
+A data-driven machine learning solution to **predict residential rental prices** in major Indian cities — **Delhi, Mumbai, and Pune** — based on features such as property area, square footage, type, furnishing status, and more.
+
+> **Note:** This project is based on **publicly available historical rental data** from Kaggle and may not reflect current market prices. However, the pipeline and model are fully customizable to accommodate updated or real-time data sources.
 
 ---
 
 ## 📌 Overview
 
-With rising urban housing demands, estimating fair rental prices is challenging. This project analyzes rental housing datasets and predicts accurate rent prices using regression models trained on location, house features, and amenities.
+With rising urban housing demand, accurately estimating fair rental prices is a major challenge. This project aims to simplify the process by using machine learning models trained on historical rental listings to predict monthly rent prices.
 
 ---
 
 ## 🎯 Key Features
 
-- 📊 Exploratory Data Analysis from MySQL database
-- 🧹 Data preprocessing with pipelines (encoding, imputation, scaling)
-- 🤖 Model comparison (Linear Regression, Random Forest, Gradient Boosting)
-- ✅ Selected best model using RMSE and R² metrics
-- 🧠 Rent prediction on new user input or batch CSV
-- 📈 Visualization: Actual vs Predicted + Residuals
-- 🖥️ (Optional) Streamlit-based prediction app
+- 🔍 **EDA from MySQL Database**
+  Interactive and visual exploration of structured rental data.
+
+- 🧹 **Robust Preprocessing Pipeline**
+  Encoding, scaling, and imputing missing data using `scikit-learn` pipelines.
+
+- 🧠 **Model Training and Evaluation**
+  Comparison of multiple regression models to select the most accurate one.
+
+- 💾 **Reusable Model & Pipeline**
+  Models saved with `joblib` for seamless integration and deployment.
+
+- 🖥️ **Interactive Streamlit App**
+  User-friendly interface to predict rental prices from custom inputs.
+
+- 📈 **Visual Diagnostics**
+  Plots for Actual vs Predicted prices and Residual error distribution.
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Tool                       | Purpose                       |
-| -------------------------- | ----------------------------- |
-| **Python**                 | Core programming language     |
-| **MySQL**                  | Backend data storage          |
-| **Pandas, NumPy**          | Data handling                 |
-| **Scikit-learn**           | ML modeling and evaluation    |
-| **Matplotlib, Seaborn**    | Visualizations                |
-| **Joblib**                 | Model/pipeline persistence    |
-| **Streamlit** _(optional)_ | Web interface for predictions |
+| Tool                    | Purpose                          |
+| ----------------------- | -------------------------------- |
+| **Python**              | Core programming language        |
+| **MySQL**               | Backend database for rental data |
+| **Pandas, NumPy**       | Data manipulation and analysis   |
+| **Scikit-learn**        | Machine learning pipeline        |
+| **Matplotlib, Seaborn** | Data visualization               |
+| **Joblib**              | Model and pipeline serialization |
+| **Streamlit**           | Web-based rent prediction app    |
 
 ---
 
 ## 🗂️ Project Structure
 
 ```
-
 rental-price-recommender/
 │
 ├── data/
-│ ├── X_train.pkl, X_test.pkl
-│ ├── y_train.pkl, y_test.pkl
+│   ├── X_train.pkl, X_test.pkl
+│   ├── y_train.pkl, y_test.pkl
 │
 ├── models/
-│ ├── preprocessing_pipeline.pkl
-│ ├── best_model.pkl
+│   ├── preprocessing_pipeline.pkl
+│   ├── best_model.pkl
 │
 ├── plots/
-│ ├── actual_vs_predicted.png
-│ ├── residuals_distribution.png
+│   ├── actual_vs_predicted.png
+│   ├── residuals_distribution.png
 │
 ├── src/
-│ ├── db_connect.py # SQL connection helper
-│ ├── eda_sql.py # Data exploration from MySQL
-│ ├── preprocessing_sql.py # Data cleaning & transformation
-│ ├── train_model_comparison.py # Model training & selection
-│ ├── evaluate_model.py # Final evaluation
-│ ├── predict.py # Single prediction interface
-│ ├── visualize_results.py # Diagnostic plots
-│ ├── app.py # (Optional) Streamlit UI
-
+│   ├── db_connect.py              # MySQL connection utility
+│   ├── eda_sql.py                 # Data exploration and cleaning
+│   ├── preprocessing_sql.py       # Data transformation pipeline
+│   ├── train_model_comparison.py  # Model training and comparison
+│   ├── evaluate_model.py          # Evaluation and performance analysis
+│   ├── predict.py                 # CLI-based prediction interface
+│   ├── visualize_results.py       # Diagnostic plots
+│
+├── app.py                         # Streamlit application
+├── requirements.txt
+└── README.md
 ```
 
 ---
@@ -75,66 +88,93 @@ rental-price-recommender/
 git clone https://github.com/Aditi-1304/rental-price-recommender.git
 cd rental-price-recommender
 
-# 2. Create virtual environment & activate
+# 2. Create a virtual environment and activate it
 python -m venv venv
-venv\Scripts\activate   # On Windows
+venv\Scripts\activate  # On Windows
 
-# 3. Install dependencies
+# 3. Install the required packages
 pip install -r requirements.txt
 
-# 4. Run training and evaluation
+# 4. Train the models and evaluate
 python src/train_model_comparison.py
 python src/evaluate_model.py
 
-# 5. Predict using sample input
+# 5. Run a sample prediction via CLI
 python src/predict.py
 
-# 6. (Optional) Launch Streamlit App
-streamlit run src/app.py
+# 6. Launch the Streamlit App
+streamlit run app.py
 ```
 
 ---
 
 ## 📈 Results
 
-| Model             | RMSE (₹) | R² Score |
-| ----------------- | -------- | -------- |
-| Linear Regression | 68,200+  | 0.81     |
-| Random Forest     | 56,530   | 0.91 ✅  |
-| Gradient Boosting | 58,000   | 0.89     |
+| Model             | RMSE (₹)  | R² Score  |
+| ----------------- | --------- | --------- |
+| Linear Regression | 58,836.01 | 0.8946    |
+| Random Forest     | 36,676.88 | 0.9590 ✅ |
+| Gradient Boosting | 45,168.99 | 0.9379    |
+| KNN Regressor     | 43,529.06 | 0.9423    |
+| XGBoost           | 40,364.53 | 0.9504    |
+| LightGBM          | 43,513.69 | 0.9424    |
 
-📊 **Best Model:** Random Forest
-📉 **Average Prediction Error (MAE):** ₹20,719.63
+📊 **Best Performing Model:** Random Forest
+📉 **Mean Absolute Error (MAE):** ₹13,680.08
 
-![Actual vs Predicted](plots/actual_vs_predicted.png)
-![Residuals](plots/residuals_distribution.png)
+<div align="center">
+
+![Actual vs Predicted](plots/actual_vs_predicted.png) <br>
+![Residuals Distribution](plots/residuals_distribution.png)
+
+</div>
 
 ---
 
-## 🧪 Sample Prediction
+## 🔍 Sample Prediction
 
 ```bash
 🏠 Area: Kothrud, Pune
 📐 Size: 1200 sq ft, 2 BHK
 🏗️ Type: Apartment, Semi-Furnished
-📦 Amenities: Gym, Parking
+💰 Security Deposit: ₹30,000
 
 ➡️ Predicted Rent: ₹38,200/month
 ```
 
 ---
 
+## 🌐 Deployment Readiness
+
+The project includes a deployable Streamlit app (`app.py`) for live predictions. It can be hosted on:
+
+- [Streamlit Community Cloud](https://streamlit.io/cloud) – Ideal for quick deployment (free tier available)
+- Hugging Face Spaces (Gradio/Streamlit interface)
+- Self-hosted via Heroku, Render, or Railway
+
+---
+
 ## 📚 Future Enhancements
 
-- Integrate geospatial features (distance to city center, metro stations)
-- Deploy with CI/CD pipeline
-- Host app on Streamlit Cloud or Hugging Face Spaces
-- Add Explainable AI (SHAP) for feature transparency
+- 🌍 Integrate **geospatial features** (e.g., proximity to metro, landmarks)
+- 🔁 Build **automated data update pipeline** (ETL)
+- 🧠 Add **Explainable AI** (SHAP, LIME) for model transparency
+- 🚀 Implement **CI/CD** for seamless updates and testing
 
 ---
 
 ## 🙋‍♀️ About Me
 
-👩‍💻 **Aditi Agrawal**
-Final-year Engineering student | Data Science + Web Dev Enthusiast <br>
-🔗 [GitHub](https://github.com/Aditi-1304) | [LeetCode](https://leetcode.com/u/Aditi_786/) | [HackerRank](https://www.hackerrank.com/profile/aditi786aaa)
+### **Aditi Agrawal**
+
+**Final-year Engineering Student** | Data Science & Web Dev Enthusiast
+Passionate about building ML-powered tools that solve real-world problems.
+
+🔗 [GitHub](https://github.com/Aditi-1304) • [LeetCode](https://leetcode.com/u/Aditi_786/) • [HackerRank](https://www.hackerrank.com/profile/aditi786aaa)
+
+---
+
+## ⚠️ Disclaimer
+
+This project uses historical rental listing data available from Kaggle.
+**The predictions may not reflect the current real-estate market**, and should be used for educational or prototype purposes only. You can **retrain the model with newer datasets** to make the system more up-to-date.

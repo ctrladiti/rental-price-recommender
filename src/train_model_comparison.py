@@ -3,7 +3,19 @@ import os
 import numpy as np
 from sklearn.linear_model import LinearRegression
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
+from sklearn.neighbors import KNeighborsRegressor
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+
+# Optional models
+try:
+    from xgboost import XGBRegressor
+except ImportError:
+    XGBRegressor = None
+
+try:
+    from lightgbm import LGBMRegressor
+except ImportError:
+    LGBMRegressor = None
 
 def evaluate_model(name, model, X_test, y_test):
     y_pred = model.predict(X_test)
@@ -31,8 +43,14 @@ def main():
     models = {
         "Linear Regression": LinearRegression(),
         "Random Forest": RandomForestRegressor(n_estimators=100, random_state=42),
-        "Gradient Boosting": GradientBoostingRegressor(n_estimators=100, learning_rate=0.1, random_state=42)
+        "Gradient Boosting": GradientBoostingRegressor(n_estimators=100, learning_rate=0.1, random_state=42),
+        "KNN Regressor": KNeighborsRegressor(n_neighbors=5)
     }
+
+    if XGBRegressor:
+        models["XGBoost"] = XGBRegressor(n_estimators=100, learning_rate=0.1, random_state=42)
+    if LGBMRegressor:
+        models["LightGBM"] = LGBMRegressor(n_estimators=100, learning_rate=0.1, random_state=42)
 
     results = []
 
