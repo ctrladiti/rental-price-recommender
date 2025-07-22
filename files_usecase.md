@@ -2,7 +2,7 @@
 
 ---
 
-## 🔹`data_loader.py` – Rental Price Recommendation System
+## 🔹 `data_loader.py` – Rental Price Recommendation System
 
 ### ● Purpose
 
