@@ -1,14 +1,16 @@
 # Usecases of Different Files of the project
 
-## 📄 `data_loader.py` – Rental Price Recommendation System
+---
 
-### 🔍 Purpose
+## 🔹`data_loader.py` – Rental Price Recommendation System
+
+### ● Purpose
 
 The `data_loader.py` file is responsible for **loading rental housing data from a CSV file** and **inserting it into the MySQL `rental_data` table**. This allows your system to maintain a centralized, clean dataset for EDA, preprocessing, and modeling.
 
 ---
 
-### ⚙️ Function: `insert_data(filepath, city)`
+### ● Function: `insert_data(filepath, city)`
 
 **Parameters:**
 
@@ -17,7 +19,7 @@ The `data_loader.py` file is responsible for **loading rental housing data from 
 
 ---
 
-### ✅ Step-by-Step What It Does:
+### ● Step-by-Step What It Does:
 
 1. **Reads CSV File:**
 
@@ -32,7 +34,7 @@ The `data_loader.py` file is responsible for **loading rental housing data from 
    ```python
    df.columns = df.columns.str.strip()
    ```
-
+   
    Removes extra spaces from column headers to prevent key errors.
 
 3. **Adds `city` Column (if missing):**
@@ -80,7 +82,7 @@ The `data_loader.py` file is responsible for **loading rental housing data from 
 
 ---
 
-## 🧾 Columns Expected in the CSV (and used in DB insert):
+### ● Columns in the CSV and used in DB insert:
 
 - `house_format`
 - `house_type`
@@ -94,7 +96,7 @@ The `data_loader.py` file is responsible for **loading rental housing data from 
 
 ---
 
-## 🧠 Summary
+### ● Summary
 
 The `data_loader.py` script is a crucial **data ingestion utility** for the project. It ensures raw rental data is cleaned, validated, and inserted into the MySQL `rental_data` table — forming the foundational dataset for all downstream analytics and ML workflows.
 
