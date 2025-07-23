@@ -101,18 +101,19 @@ The `data_loader.py` file is responsible for **loading rental housing data from 
 The `data_loader.py` script is a crucial **data ingestion utility** for the project. It ensures raw rental data is cleaned, validated, and inserted into the MySQL `rental_data` table — forming the foundational dataset for all downstream analytics and ML workflows.
 
 ---
+---
 
-# 📄 `main.py` – Rental Price Data Loader Runner
+## 🔹 `main.py` – Rental Price Data Loader Runner
 
-## 🔍 Purpose
+### ● Purpose
 
 The `main.py` script serves as the **entry point** to **load and insert rental housing data for multiple cities** into the MySQL `rental_data` table using the `insert_data()` function from the `data_loader.py` file.
 
 ---
 
-## 🧩 Functionality
+### ● Functionality
 
-### 🔁 It does the following:
+###  It does the following:
 
 1. **Imports pandas** for general use (though not directly used here).
 
@@ -149,15 +150,7 @@ The `main.py` script serves as the **entry point** to **load and insert rental h
 
 ---
 
-## 🧠 Summary
-
-- The script helps automate the **loading and insertion of city-specific rental data** into your SQL database.
-- You can run it **once to populate the `rental_data` table** with cleaned data from Delhi, Mumbai, and Pune.
-- It relies on `src.data_loader.insert_data()` to handle the actual insertion logic.
-
----
-
-## 🛠️ How to Run
+### ● How to Run
 
 ```bash
 python main.py
@@ -166,6 +159,15 @@ python main.py
 > ✅ Make sure your Python environment is active and your MySQL database is running with proper credentials in `db_connect.py`.
 
 ---
+
+### ● Summary
+
+- The script helps automate the **loading and insertion of city-specific rental data** into your SQL database.
+- You can run it **once to populate the `rental_data` table** with cleaned data from Delhi, Mumbai, and Pune.
+- It relies on `src.data_loader.insert_data()` to handle the actual insertion logic.
+
+---
+
 
 # 📄 `eda_sql.py` – Exploratory Data Analysis (EDA) from SQL
 
