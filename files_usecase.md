@@ -167,7 +167,7 @@ python main.py
 - It relies on `src.data_loader.insert_data()` to handle the actual insertion logic.
 
 ---
-
+---
 
 ## 🔹 `eda_sql.py` – Exploratory Data Analysis (EDA) from SQL
 
