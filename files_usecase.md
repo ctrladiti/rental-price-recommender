@@ -169,15 +169,15 @@ python main.py
 ---
 
 
-# 📄 `eda_sql.py` – Exploratory Data Analysis (EDA) from SQL
+## 🔹 `eda_sql.py` – Exploratory Data Analysis (EDA) from SQL
 
-## 🔍 Purpose
+### ▶ Purpose
 
 The `eda_sql.py` script is responsible for performing **Exploratory Data Analysis (EDA)** on the **rental data loaded directly from your SQL database** using the `load_data_from_sql()` function. It generates summary statistics, missing value reports, and visualizations, which are saved locally.
 
 ---
 
-## 📦 Dependencies Used
+### ▶ Dependencies Used
 
 - `pandas`: For data manipulation.
 - `seaborn` and `matplotlib`: For plotting.
@@ -186,9 +186,7 @@ The `eda_sql.py` script is responsible for performing **Exploratory Data Analysi
 
 ---
 
-## 🧩 Function: `perform_eda()`
-
-### ✅ What It Does:
+### ▶ Function: `perform_eda()` (What It Does)
 
 1. ### **Loads Data**
 
@@ -230,7 +228,7 @@ The `eda_sql.py` script is responsible for performing **Exploratory Data Analysi
 
 ---
 
-## 📁 Output Folder
+### ▶ Output Folder
 
 All visualizations are saved in:
 
@@ -246,7 +244,7 @@ eda_outputs/
 
 ---
 
-## ▶️ How to Run
+### ▶ How to Run
 
 From terminal:
 
