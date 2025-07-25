@@ -263,9 +263,9 @@ This script provides a **quick and automated way to understand your SQL rental d
 ---
 ---
 
-# 📄 `preprocessing.py` – Data Cleaning and Preprocessing Pipeline
+## 🔹 `preprocessing.py` – Data Cleaning and Preprocessing Pipeline
 
-## 🔍 Purpose
+### ▶ Purpose
 
 This script performs the **full preprocessing pipeline** for your rental data project:
 
@@ -277,7 +277,7 @@ This script performs the **full preprocessing pipeline** for your rental data pr
 
 ---
 
-## 📦 Key Functions
+### ▶ Key Functions
 
 ### ### `clean_house_size(value)`
 
@@ -335,7 +335,7 @@ Using an 80-20 split (default), with reproducibility via `random_state=42`.
 
 ---
 
-## ▶️ When Run as a Script
+### ▶ When Run as a Script
 
 ```bash
 python preprocessing.py
@@ -356,7 +356,7 @@ It performs the following:
 
 ---
 
-## 🧠 Summary
+### ▶ Summary
 
 | Stage         | Output                                  |
 | ------------- | --------------------------------------- |
