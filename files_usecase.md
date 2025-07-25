@@ -279,13 +279,13 @@ This script performs the **full preprocessing pipeline** for your rental data pr
 
 ### ▶ Key Functions
 
-### ### `clean_house_size(value)`
+■ `clean_house_size(value)`
 
 Cleans `house_size` by extracting the numeric part from strings like `"1,200 sqft"` → `1200`.
 
 ---
 
-### ### `clean_security_deposit(value)`
+■ `clean_security_deposit(value)`
 
 Converts deposit strings like:
 
@@ -294,17 +294,17 @@ Converts deposit strings like:
 
 ---
 
-### ### `load_data(filepath)`
+■ `load_data(filepath)`
 
 1. Loads a CSV file.
 2. Applies cleaning functions.
 3. Drops rows missing critical features (`price`, `house_size`, `SecurityDeposit`, etc.).
 
-🔁 Returns a **cleaned DataFrame**.
+- Returns a **cleaned DataFrame**.
 
 ---
 
-### ### `preprocess_data(df)`
+■ `preprocess_data(df)`
 
 1. Separates features (`X`) and target (`y = price`).
 2. Identifies:
@@ -320,11 +320,11 @@ Converts deposit strings like:
 4. Creates and fits a **ColumnTransformer-based pipeline**.
 5. Saves the pipeline as `models/preprocessing_pipeline.pkl`.
 
-📦 Returns: Transformed features `X_processed`, target `y`
+- Returns: Transformed features `X_processed`, target `y`
 
 ---
 
-### ### `split_data(X, y, test_size=0.2)`
+■ `split_data(X, y, test_size=0.2)`
 
 Splits `X` and `y` into:
 
