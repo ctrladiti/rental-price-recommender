@@ -368,18 +368,19 @@ It performs the following:
 This file prepares your data for modeling and is essential to maintain consistency in input transformations at both training and prediction time.
 
 ---
+---
 
-# 📄 `preprocessing_sql.py` – Preprocessing Pipeline Using SQL Data
+## 🔹 `preprocessing_sql.py` – Preprocessing Pipeline Using SQL Data
 
-## 🔍 Purpose
+### ▶ Purpose
 
 This script is designed to **load rental housing data directly from a SQL database**, clean and preprocess it, and save the processed data and pipeline for later modeling.
 
 ---
 
-## 🧩 Key Functionalities
+### ▶ Key Functionalities
 
-### ✅ 1. `load_data()`
+■ 1. `load_data()`
 
 - **Reads from MySQL** using:
 
@@ -406,7 +407,7 @@ This script is designed to **load rental housing data directly from a SQL databa
 
 ---
 
-### ✅ 2. `preprocess_data(df)`
+■ 2. `preprocess_data(df)`
 
 - Splits data into:
 
@@ -433,14 +434,14 @@ This script is designed to **load rental housing data directly from a SQL databa
 
 ---
 
-### ✅ 3. `split_data(X, y)`
+■ 3. `split_data(X, y)`
 
 - Performs a train/test split (default: 80/20)
 - Uses `random_state=42` for reproducibility
 
 ---
 
-### ✅ 4. Script Execution (`__main__`)
+■ 4. Script Execution (`__main__`)
 
 When you run:
 
@@ -463,7 +464,7 @@ It will:
 
 ---
 
-## 🧠 Summary
+### ▶ Summary
 
 | Stage        | Output                                   |
 | ------------ | ---------------------------------------- |
