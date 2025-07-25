@@ -256,10 +256,11 @@ python eda_sql.py
 
 ---
 
-## 🧠 Summary
+### ▶ Summary
 
 This script provides a **quick and automated way to understand your SQL rental dataset**, identify potential issues like missing values, and generate useful visualizations that inform preprocessing and modeling.
 
+---
 ---
 
 # 📄 `preprocessing.py` – Data Cleaning and Preprocessing Pipeline
