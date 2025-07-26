@@ -403,7 +403,7 @@ This script is designed to **load rental housing data directly from a SQL databa
 
 - **Prints intermediate shapes and issues** to help debug if too much data is dropped.
 
-> ❗ Exits if the cleaned dataset ends up empty.
+> Exits if the cleaned dataset ends up empty.
 
 ---
 
