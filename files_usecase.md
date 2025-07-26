@@ -1,8 +1,10 @@
+[toc]
+
 # Usecases of Different Files of the project
 
 ---
 
-## 🔹 `data_loader.py` – Rental Price Recommendation System
+## 🔹`data_loader.py` – Rental Price Recommendation System
 
 ### ▶ Purpose
 
@@ -113,7 +115,7 @@ The `main.py` script serves as the **entry point** to **load and insert rental h
 
 ### ▶ Functionality
 
-###  It does the following:
+It does the following:
 
 1. **Imports pandas** for general use (though not directly used here).
 
@@ -477,14 +479,11 @@ It will:
 This script ensures your ML pipeline uses **clean and consistently preprocessed data from your live database**, enabling more accurate and scalable predictions.
 
 ---
-
-Here’s a **Markdown-formatted explanation** of your `db_connect.py` file and its role in your **Rental Price Recommendation System** project:
-
 ---
 
-# 📄 `db_connect.py` – MySQL Database Connection Utility
+## 🔹 `db_connect.py` – MySQL Database Connection Utility
 
-## 🔍 Purpose
+### ▶ Purpose
 
 This file provides **database access functionality** by:
 
@@ -493,9 +492,9 @@ This file provides **database access functionality** by:
 
 ---
 
-## 🔧 MySQL Connection Setup
+### ▶ MySQL Connection Setup
 
-### ✅ `get_connection()`
+- `get_connection()`
 
 ```python
 def get_connection():
@@ -511,13 +510,13 @@ def get_connection():
 - Uses local credentials: `user=root`, `password=root`.
 - This function is **reused by all SQL access methods** in the project.
 
-> 🔒 Consider using environment variables or a config file for credentials in production.
+> Consider using environment variables or a config file for credentials in production.
 
 ---
 
-## 📥 Data Load Functions
+### ▶ Data Load Functions
 
-### ✅ `load_data_from_sql()`
+■  `load_data_from_sql()`
 
 ```python
 def load_data_from_sql():
@@ -533,9 +532,7 @@ def load_data_from_sql():
 - Returns the full table as a **pandas DataFrame**.
 - Used for full-table access, especially in EDA and preprocessing.
 
----
-
-### ✅ `load_table_as_dataframe(table_name: str)`
+■  `load_table_as_dataframe(table_name: str)`
 
 ```python
 def load_table_as_dataframe(table_name: str) -> pd.DataFrame:
@@ -553,7 +550,7 @@ def load_table_as_dataframe(table_name: str) -> pd.DataFrame:
 
 ---
 
-## 🧠 Summary
+### ▶ Summary
 
 | Function                              | Purpose                                  |
 | ------------------------------------- | ---------------------------------------- |
