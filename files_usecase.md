@@ -783,7 +783,7 @@ This script forms the **core modeling step** of your project pipeline. You can l
 
 ## 🔹 `train_model_comparision.py` — Model Benchmarking & Selection
 
-## 🎯 Objective
+### ▶ Objective
 
 Train **multiple regression models**, evaluate their performance, and save:
 
@@ -792,9 +792,9 @@ Train **multiple regression models**, evaluate their performance, and save:
 
 ---
 
-## 📦 Key Features
+### ▶ Key Features
 
-### ✅ Model Options Included
+**Model Options Included**
 
 | Model               | Library      |
 | ------------------- | ------------ |
@@ -805,11 +805,11 @@ Train **multiple regression models**, evaluate their performance, and save:
 | XGBoost (optional)  | xgboost      |
 | LightGBM (optional) | lightgbm     |
 
-> ⚠️ `XGBoost` and `LightGBM` are imported conditionally. If not installed, they’re simply skipped.
+> `XGBoost` and `LightGBM` are imported conditionally. If not installed, they’re simply skipped.
 
 ---
 
-## 🔍 Evaluation Metrics
+### ▶ Evaluation Metrics
 
 Each model is evaluated using:
 
@@ -817,7 +817,7 @@ Each model is evaluated using:
 - `RMSE` (Root Mean Squared Error)
 - `R²` (R-squared Score)
 
-### 📊 Output Format Example
+**Output Format Example**
 
 ```plaintext
 📌 Random Forest Evaluation:
@@ -828,7 +828,7 @@ Each model is evaluated using:
 
 ---
 
-## 🧪 Model Evaluation Logic
+### ▶ Model Evaluation Logic
 
 ```python
 def evaluate_model(name, model, X_test, y_test):
@@ -839,16 +839,16 @@ def evaluate_model(name, model, X_test, y_test):
 
 ---
 
-## 🔄 Workflow Summary
+### ▶ Workflow Summary
 
-### 1. Load Preprocessed Data
+**1. Load Preprocessed Data**
 
 ```python
 X_train = joblib.load("data/X_train.pkl")
 ...
 ```
 
-### 2. Train and Evaluate All Models
+**2. Train and Evaluate All Models**
 
 ```python
 for name, model in models.items():
@@ -856,13 +856,13 @@ for name, model in models.items():
     ...
 ```
 
-### 3. Save Each Model
+**3. Save Each Model**
 
 ```python
 joblib.dump(model, model_path)
 ```
 
-### 4. Select Best Model by Lowest RMSE
+**4. Select Best Model by Lowest RMSE**
 
 ```python
 best_model = min(results, key=lambda x: x["rmse"])
@@ -870,7 +870,7 @@ best_model = min(results, key=lambda x: x["rmse"])
 
 ---
 
-## 🗃️ Output Files
+### ▶ Output Files
 
 | File Path                              | Description                           |
 | -------------------------------------- | ------------------------------------- |
@@ -884,32 +884,20 @@ best_model = min(results, key=lambda x: x["rmse"])
 
 ---
 
-## ▶️ How to Run
+### ▶ How to Run
 
 ```bash
 python train_model_comparision.py
 ```
 
-> ✅ Make sure `data/X_train.pkl`, `X_test.pkl`, etc., are pre-generated.
-> ✅ Create the `models/` directory manually **OR** it will be created by `os.makedirs()`.
+> Make sure `data/X_train.pkl`, `X_test.pkl`, etc., are pre-generated.
+> 
+> Create the `models/` directory manually **OR** it will be created by `os.makedirs()`.
 
 ---
+### ▶ Summary
 
-## 💡 Suggestions
-
-- ✅ **Add Logging to CSV/Excel**: Save `results` to a file for future reference.
-- ✅ **Plot RMSE Bar Chart** using matplotlib or seaborn.
-- 🚀 Optionally add **cross-validation** to make comparisons more robust.
-
-Let me know if you’d like code for:
-
-- Cross-validation based selection
-- Saving result comparison as CSV
-- Visualizing metrics per model in a bar chart
-
----
-
-**TL;DR**: This script benchmarks multiple regression models, logs key metrics, and saves both individual models and the best performer — making it ideal for production-ready model selection.
+This script benchmarks multiple regression models, logs key metrics, and saves both individual models and the best performer — making it ideal for production-ready model selection.
 
 ---
 
