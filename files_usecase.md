@@ -970,13 +970,13 @@ Run this file **after** training is complete (i.e., after `train_model_comparisi
 
 ## 🔹 `visualize_results.py` — Visual Evaluation of Model Performance
 
-### 🎯 Purpose:
+### ▶ Purpose:
 
 This script **generates visual plots** to assess how well the model performs in predicting rental prices by comparing predicted vs actual values and analyzing residuals.
 
 ---
 
-### 🛠️ What it Does:
+### ▶ What it Does:
 
 1. **Loads data and model**:
 
@@ -990,13 +990,13 @@ This script **generates visual plots** to assess how well the model performs in 
 
 3. **Creates 2 diagnostic plots**:
 
-   - **📈 Actual vs Predicted Plot**:
+   - **Actual vs Predicted Plot**:
 
      - Scatter plot showing how closely the predictions match the actual rental values.
      - A red dashed reference line (`y = x`) helps visualize prediction accuracy.
      - Saved to: `plots/actual_vs_predicted.png`
 
-   - **📉 Residuals Distribution Plot**:
+   - **Residuals Distribution Plot**:
 
      - Histogram (with KDE) of residuals to show error distribution.
      - Helps check for bias in predictions.
@@ -1012,7 +1012,7 @@ This script **generates visual plots** to assess how well the model performs in 
 
 ---
 
-### 📊 Sample Output:
+### ▶ Sample Output:
 
 #### Console Output:
 
@@ -1030,7 +1030,7 @@ This script **generates visual plots** to assess how well the model performs in 
 
 ---
 
-### 🧩 How it Fits in the Project:
+### ▶ How it Fits in the Project:
 
 | File                         | Role                                                 |
 | ---------------------------- | ---------------------------------------------------- |
@@ -1043,17 +1043,11 @@ This script **generates visual plots** to assess how well the model performs in 
 
 ---
 
-### ✅ When to Use:
+### ▶ When to Use:
 
 Run this file after the best model is trained and saved. It provides visual confidence in the model's performance and helps detect issues like bias or poor fit.
 
 ---
-
-Let me know if you'd like these markdown files saved into your repo or automatically generated summaries for other components.
-
----
-
-Here’s a detailed `.md` explanation for your `app.py` file for the **Rental Price Recommendation System** project:
 
 ---
 
