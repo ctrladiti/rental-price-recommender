@@ -562,21 +562,19 @@ This file is essential for all your **SQL → Python workflows**, powering EDA, 
 
 ---
 
-Here's a **Markdown-formatted explanation** of your `data_split_sql.py` file and its role in your **Rental Price Recommendation System** project:
-
 ---
 
-# 📄 `data_split_sql.py` – Direct SQL-Based Data Splitter
+## 🔹 `data_split_sql.py` – Direct SQL-Based Data Splitter
 
-## 🔍 Purpose
+### ▶ Purpose
 
 This script **loads rental data from your MySQL database**, prepares it for training by handling missing values and encoding, then **splits the data into training and test sets** for model development.
 
 ---
 
-## 🧩 What It Does
+### ▶ What It Does
 
-### ✅ 1. Load Data
+**1. Load Data**
 
 ```python
 df = load_data_from_sql()
@@ -586,7 +584,7 @@ df = load_data_from_sql()
 
 ---
 
-### ✅ 2. Drop Unnecessary or Incomplete Rows
+**2. Drop Unnecessary or Incomplete Rows**
 
 ```python
 df = df.drop(columns=["id"])
@@ -598,7 +596,7 @@ df = df.dropna(subset=["price", "numBathrooms"])
 
 ---
 
-### ✅ 3. Split Features and Target
+**3. Split Features and Target**
 
 ```python
 y = df["price"]
@@ -610,7 +608,7 @@ X = df.drop(columns=["price"])
 
 ---
 
-### ✅ 4. One-Hot Encode Categorical Variables
+**4. One-Hot Encode Categorical Variables**
 
 ```python
 categorical_cols = X.select_dtypes(include="object").columns.tolist()
@@ -623,7 +621,7 @@ X = pd.get_dummies(X, columns=categorical_cols, drop_first=True)
 
 ---
 
-### ✅ 5. Train-Test Split
+**5. Train-Test Split**
 
 ```python
 X_train, X_test, y_train, y_test = train_test_split(...)
@@ -634,7 +632,7 @@ X_train, X_test, y_train, y_test = train_test_split(...)
 
 ---
 
-### ✅ 6. Save Output Files
+**6. Save Output Files**
 
 ```python
 joblib.dump(..., "data/...")
@@ -644,7 +642,7 @@ joblib.dump(..., "data/...")
 
 ---
 
-## 📂 Output Files
+### ▶ Output Files
 
 | File Name          | Description                |
 | ------------------ | -------------------------- |
@@ -655,7 +653,7 @@ joblib.dump(..., "data/...")
 
 ---
 
-## ▶️ How to Run
+### ▶ How to Run
 
 ```bash
 python data_split_sql.py
@@ -665,7 +663,7 @@ python data_split_sql.py
 
 ---
 
-## 🧠 Summary
+### ▶ Summary
 
 | Task          | Description                                      |
 | ------------- | ------------------------------------------------ |
@@ -678,19 +676,9 @@ This script is a **minimal, SQL-driven alternative** to the full preprocessing p
 
 ---
 
-Let me know if you'd like to:
-
-- Include scaling
-- Integrate this with a model training script
-- Convert this into a modular function for reuse
-
 ---
 
-Here's a **Markdown-formatted explanation** of your `modeling.py` file, which builds and evaluates your rental price prediction model:
-
----
-
-# 🤖 `modeling.py` – Model Training and Evaluation Script
+## 🔹 `modeling.py` – Model Training and Evaluation Script
 
 ## 📌 Goal
 
