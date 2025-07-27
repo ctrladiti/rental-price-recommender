@@ -680,15 +680,15 @@ This script is a **minimal, SQL-driven alternative** to the full preprocessing p
 
 ## 🔹 `modeling.py` – Model Training and Evaluation Script
 
-## 📌 Goal
+### ▶ Goal
 
 Train a **Linear Regression model** on your preprocessed rental dataset and evaluate its performance.
 
 ---
 
-## 🧩 What It Does
+### ▶ What It Does
 
-### ✅ 1. Load Preprocessed Data
+**1. Load Preprocessed Data**
 
 ```python
 X_train = joblib.load("data/X_train.pkl")
@@ -702,7 +702,7 @@ y_test = joblib.load("data/y_test.pkl")
 
 ---
 
-### ✅ 2. Train the Model
+**2. Train the Model**
 
 ```python
 model = LinearRegression()
@@ -714,7 +714,7 @@ model.fit(X_train, y_train)
 
 ---
 
-### ✅ 3. Make Predictions
+**3. Make Predictions**
 
 ```python
 y_pred = model.predict(X_test)
@@ -724,7 +724,7 @@ y_pred = model.predict(X_test)
 
 ---
 
-### ✅ 4. Evaluate Performance
+**4. Evaluate Performance**
 
 ```python
 print("  MAE :", mean_absolute_error(y_test, y_pred))
@@ -738,7 +738,7 @@ print("  R²  :", r2_score(y_test, y_pred))
 
 ---
 
-### ✅ 5. Save the Trained Model
+**5. Save the Trained Model**
 
 ```python
 joblib.dump(model, "models/linear_model.pkl")
@@ -748,7 +748,7 @@ joblib.dump(model, "models/linear_model.pkl")
 
 ---
 
-## 🗃️ Output
+### ▶ Output
 
 | File Path                 | Description                     |
 | ------------------------- | ------------------------------- |
@@ -756,7 +756,7 @@ joblib.dump(model, "models/linear_model.pkl")
 
 ---
 
-## ▶️ How to Run
+### ▶ How to Run
 
 ```bash
 python modeling.py
@@ -766,7 +766,7 @@ python modeling.py
 
 ---
 
-## 🧠 Summary
+### ▶ Summary
 
 | Step        | Description                                   |
 | ----------- | --------------------------------------------- |
@@ -778,16 +778,6 @@ python modeling.py
 This script forms the **core modeling step** of your project pipeline. You can later use this trained model for predictions in your Streamlit UI.
 
 ---
-
-Let me know if you’d like to:
-
-- Switch to another regression algorithm (e.g., `RandomForestRegressor`)
-- Add cross-validation
-- Log metrics to a file or dashboard
-
----
-
-Here's a clean breakdown of your `train_model_comparision.py` script — it's a solid, extensible model benchmarking pipeline for your rental price prediction project.
 
 ---
 
