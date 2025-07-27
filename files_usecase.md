@@ -8,7 +8,7 @@
 
 ### ▶ Purpose
 
-The `data_loader.py` file is responsible for **loading rental housing data from a CSV file** and **inserting it into the MySQL `rental_data` table**. This allows your system to maintain a centralized, clean dataset for EDA, preprocessing, and modeling.
+The `data_loader.py` file is responsible for **loading rental housing data from a CSV file** and **inserting it into the MySQL `rental_data` table**. This allows the system to maintain a centralized, clean dataset for EDA, preprocessing, and modeling.
 
 ---
 
@@ -64,7 +64,7 @@ The `data_loader.py` file is responsible for **loading rental housing data from 
    cursor = conn.cursor()
    ```
 
-   Establishes a connection using `get_connection()` from your `db_connect.py`.
+   Establishes a connection using `get_connection()` from the `db_connect.py`.
 
 6. **Inserts Rows into MySQL Table:**
 
@@ -115,7 +115,7 @@ The `main.py` script serves as the **entry point** to **load and insert rental h
 
 ### ▶ Functionality
 
-It does the following:
+**It does the following:**
 
 1. **Imports pandas** for general use (though not directly used here).
 
@@ -175,7 +175,7 @@ python main.py
 
 ### ▶ Purpose
 
-The `eda_sql.py` script is responsible for performing **Exploratory Data Analysis (EDA)** on the **rental data loaded directly from your SQL database** using the `load_data_from_sql()` function. It generates summary statistics, missing value reports, and visualizations, which are saved locally.
+The `eda_sql.py` script is responsible for performing **Exploratory Data Analysis (EDA)** on the **rental data loaded directly from the SQL database** using the `load_data_from_sql()` function. It generates summary statistics, missing value reports, and visualizations, which are saved locally.
 
 ---
 
@@ -184,13 +184,15 @@ The `eda_sql.py` script is responsible for performing **Exploratory Data Analysi
 - `pandas`: For data manipulation.
 - `seaborn` and `matplotlib`: For plotting.
 - `os`: To create output directories.
-- `db_connect.load_data_from_sql`: Loads data from your MySQL table `rental_data`.
+- `db_connect.load_data_from_sql`: Loads data from the MySQL table `rental_data`.
 
 ---
 
-### ▶ Function: `perform_eda()` (What It Does)
+### ▶ Function: `perform_eda()` 
 
-1. ### **Loads Data**
+#### What It Does
+
+1. **Loads Data**
 
    ```python
    df = load_data_from_sql()
@@ -198,16 +200,16 @@ The `eda_sql.py` script is responsible for performing **Exploratory Data Analysi
 
    Fetches the rental data from the database into a pandas DataFrame.
 
-2. ### **Basic Data Overview**
+2. **Basic Data Overview**
 
    - Shows number of rows and columns.
    - Displays `.info()`, `.head()`, `.isnull()`, `.describe()`, and unique categorical values.
 
-3. ### **Missing Values**
+3. **Missing Values**
 
    - Prints both **raw count** and **percentage of missing data**.
 
-4. ### **Creates Output Folder**
+4. **Creates Output Folder**
 
    ```python
    os.makedirs("eda_outputs", exist_ok=True)
@@ -215,7 +217,7 @@ The `eda_sql.py` script is responsible for performing **Exploratory Data Analysi
 
    Ensures that a folder `eda_outputs/` exists to store the plots.
 
-5. ### **Visualizations Generated:**
+5. **Visualizations Generated:**
 
    - **Histograms** for numeric columns (`price`, `numBathrooms`, etc.).
    - **Countplots** for top 10 values in each categorical column (e.g., `city`, `house_type`).
@@ -223,7 +225,7 @@ The `eda_sql.py` script is responsible for performing **Exploratory Data Analysi
    - **Correlation Heatmap** for numeric variables.
    - **Barplot** showing average price in **top 10 locations** by listing count.
 
-6. ### **Saves All Plots**
+6. **Saves All Plots**
 
    - Visualizations are saved inside `eda_outputs/` folder as `.png` files.
    - Example: `price_distribution.png`, `Status_countplot.png`, `correlation_heatmap.png`, etc.
@@ -254,7 +256,7 @@ From terminal:
 python eda_sql.py
 ```
 
-> Make sure your MySQL DB is running and the `load_data_from_sql()` function is correctly configured to pull data from the `rental_data` table.
+> Make sure the MySQL DB is running and the `load_data_from_sql()` function is correctly configured to pull data from the `rental_data` table.
 
 ---
 
@@ -269,7 +271,7 @@ This script provides a **quick and automated way to understand your SQL rental d
 
 ### ▶ Purpose
 
-This script performs the **full preprocessing pipeline** for your rental data project:
+This script performs the **full preprocessing pipeline** for the rental data project:
 
 - Cleans raw data
 - Handles missing values
@@ -281,13 +283,13 @@ This script performs the **full preprocessing pipeline** for your rental data pr
 
 ### ▶ Key Functions
 
-■ `clean_house_size(value)`
+#### `clean_house_size(value)`
 
 Cleans `house_size` by extracting the numeric part from strings like `"1,200 sqft"` → `1200`.
 
 ---
 
-■ `clean_security_deposit(value)`
+#### `clean_security_deposit(value)`
 
 Converts deposit strings like:
 
@@ -296,7 +298,7 @@ Converts deposit strings like:
 
 ---
 
-■ `load_data(filepath)`
+#### `load_data(filepath)`
 
 1. Loads a CSV file.
 2. Applies cleaning functions.
@@ -306,7 +308,7 @@ Converts deposit strings like:
 
 ---
 
-■ `preprocess_data(df)`
+#### `preprocess_data(df)`
 
 1. Separates features (`X`) and target (`y = price`).
 2. Identifies:
@@ -326,7 +328,7 @@ Converts deposit strings like:
 
 ---
 
-■ `split_data(X, y, test_size=0.2)`
+#### `split_data(X, y, test_size=0.2)`
 
 Splits `X` and `y` into:
 
@@ -343,7 +345,7 @@ Using an 80-20 split (default), with reproducibility via `random_state=42`.
 python preprocessing.py
 ```
 
-It performs the following:
+**It performs the following:**
 
 1. Loads and cleans data from `data/Indian_housing_Delhi_data.csv`.
 2. Applies preprocessing (scaling + encoding).
