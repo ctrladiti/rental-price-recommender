@@ -781,7 +781,7 @@ This script forms the **core modeling step** of your project pipeline. You can l
 
 ---
 
-# 🧠 `train_model_comparision.py` — Model Benchmarking & Selection
+## 🔹 `train_model_comparision.py` — Model Benchmarking & Selection
 
 ## 🎯 Objective
 
@@ -917,7 +917,7 @@ Here is a Markdown (`.md`) formatted explanation for your `evaluate_model.py` fi
 
 ---
 
-## 📄 `evaluate_model.py` — Final Evaluation of Best Model
+## 🔹 `evaluate_model.py` — Final Evaluation of Best Model
 
 ### 🔍 Purpose:
 
