@@ -901,19 +901,17 @@ This script benchmarks multiple regression models, logs key metrics, and saves b
 
 ---
 
-Here is a Markdown (`.md`) formatted explanation for your `evaluate_model.py` file and how it fits into your **Rental Price Recommendation System** project:
-
 ---
 
 ## 🔹 `evaluate_model.py` — Final Evaluation of Best Model
 
-### 🔍 Purpose:
+### ▶ Purpose:
 
 This script **evaluates the performance** of the **best trained regression model** on the test data using common regression metrics.
 
 ---
 
-### 🛠️ What it Does:
+### ▶ What it Does:
 
 1. **Loads test data**:
 
@@ -939,7 +937,7 @@ This script **evaluates the performance** of the **best trained regression model
 
 ---
 
-### 🧩 How it Fits in the Project:
+### ▶ How it Fits in the Project:
 
 | File                         | Role                                                                               |
 | ---------------------------- | ---------------------------------------------------------------------------------- |
@@ -951,13 +949,13 @@ This script **evaluates the performance** of the **best trained regression model
 
 ---
 
-### ✅ When to Use:
+### ▶ When to Use:
 
 Run this file **after** training is complete (i.e., after `train_model_comparision.py` has saved `best_model.pkl`) to see how well the best model performs on unseen data.
 
 ---
 
-### 💡 Example Output:
+### ▶ Example Output:
 
 ```
 📊 Model Evaluation on Test Data:
@@ -967,12 +965,6 @@ Run this file **after** training is complete (i.e., after `train_model_comparisi
 ```
 
 ---
-
-Let me know if you want a similar `.md` explanation for other files too.
-
----
-
-Here's a `.md` explanation for your `visualize_results.py` file in the context of your **Rental Price Recommendation System** project:
 
 ---
 
