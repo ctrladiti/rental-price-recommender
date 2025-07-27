@@ -968,7 +968,7 @@ Run this file **after** training is complete (i.e., after `train_model_comparisi
 
 ---
 
-## 📄 `visualize_results.py` — Visual Evaluation of Model Performance
+## 🔹 `visualize_results.py` — Visual Evaluation of Model Performance
 
 ### 🎯 Purpose:
 
@@ -1057,7 +1057,7 @@ Here’s a detailed `.md` explanation for your `app.py` file for the **Rental Pr
 
 ---
 
-## 🌐 `app.py` — Streamlit UI for Rental Price Prediction
+## 🔹 `app.py` — Streamlit UI for Rental Price Prediction
 
 ### 🎯 Purpose:
 
