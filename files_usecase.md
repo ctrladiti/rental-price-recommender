@@ -1053,25 +1053,25 @@ Run this file after the best model is trained and saved. It provides visual conf
 
 ## 🔹 `app.py` — Streamlit UI for Rental Price Prediction
 
-### 🎯 Purpose:
+### ▶ Purpose:
 
 This script provides a **simple and interactive web interface** using Streamlit to allow users to input property details and get **instant rental price predictions** powered by your trained machine learning model.
 
 ---
 
-### 💻 How It Works:
+### ▶ How It Works:
 
-1. **🔃 Loads Pretrained Assets**
+1. **Loads Pretrained Assets**
 
    - Loads `preprocessing_pipeline.pkl` to transform the input features.
    - Loads `best_model.pkl` — the ML model that makes predictions.
 
-2. **🧾 Streamlit App Setup**
+2. **Streamlit App Setup**
 
    - Configures page title and layout.
    - Displays a form for user input (property details).
 
-3. **📥 Input Fields**
+3. **Input Fields**
 
    - `house_format`: e.g., _2 BHK_
    - `house_type`: e.g., _Apartment_, _Villa_
@@ -1082,24 +1082,24 @@ This script provides a **simple and interactive web interface** using Streamlit 
    - `SecurityDeposit`: e.g., ₹25,000
    - `Status`: _Furnished_, _Semi-Furnished_, _Unfurnished_
 
-4. **🧹 Input Cleaning**
+4. **Input Cleaning**
 
    - Uses `clean_numeric()` to extract numeric values from strings (e.g., ₹ symbols, commas, “sqft”).
    - Ensures that values like `house_size` and `security_deposit` are clean floats.
 
-5. **📈 Prediction**
+5. **Prediction**
 
    - All fields are converted to a single-row `DataFrame`.
    - Passed through the preprocessing pipeline.
    - Final rental price is predicted and shown to the user with proper formatting (`₹xx,xxx`).
 
-6. **⚠️ Error Handling**
+6. **Error Handling**
 
    - Catches exceptions and displays errors using `st.error()`.
 
 ---
 
-### 📊 Output Example
+### ▶ Output Example
 
 When the user enters property details and clicks "Predict Rent":
 
@@ -1115,7 +1115,7 @@ Or, in case of error:
 
 ---
 
-### 📁 Folder Dependency Checklist
+### ▶ Folder Dependency Checklist
 
 | File/Folder                         | Description                                                    |
 | ----------------------------------- | -------------------------------------------------------------- |
@@ -1126,7 +1126,7 @@ Or, in case of error:
 
 ---
 
-### 🚀 To Run the App
+### ▶ To Run the App
 
 ```bash
 streamlit run app.py
@@ -1136,11 +1136,9 @@ streamlit run app.py
 
 ---
 
-### ✅ When to Use
+### ▶ When to Use
 
 - Use this app **after training is complete** and you've saved your model and pipeline.
 - It is ideal for **demoing the system**, collecting feedback, or deploying as a **proof of concept**.
 
 ---
-
-Let me know if you want a `requirements.txt` or deployment guide (e.g., Streamlit Cloud, Hugging Face Spaces, or AWS EC2).
