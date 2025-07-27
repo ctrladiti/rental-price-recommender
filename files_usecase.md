@@ -369,7 +369,7 @@ python preprocessing.py
 | Pipeline      | Saved as `preprocessing_pipeline.pkl`   |
 | Train/Test    | 4 `.pkl` files for training and testing |
 
-This file prepares your data for modeling and is essential to maintain consistency in input transformations at both training and prediction time.
+This file prepares the data for modeling and is essential to maintain consistency in input transformations at both training and prediction time.
 
 ---
 ---
@@ -384,7 +384,7 @@ This script is designed to **load rental housing data directly from a SQL databa
 
 ### ▶ Key Functionalities
 
-■ 1. `load_data()`
+#### 1. `load_data()`
 
 - **Reads from MySQL** using:
 
@@ -411,7 +411,7 @@ This script is designed to **load rental housing data directly from a SQL databa
 
 ---
 
-■ 2. `preprocess_data(df)`
+#### 2. `preprocess_data(df)`
 
 - Splits data into:
 
@@ -438,14 +438,14 @@ This script is designed to **load rental housing data directly from a SQL databa
 
 ---
 
-■ 3. `split_data(X, y)`
+#### 3. `split_data(X, y)`
 
 - Performs a train/test split (default: 80/20)
 - Uses `random_state=42` for reproducibility
 
 ---
 
-■ 4. Script Execution (`__main__`)
+#### 4. Script Execution (`__main__`)
 
 When you run:
 
@@ -478,7 +478,7 @@ It will:
 | Splitting    | Train/test sets (`.pkl` files)           |
 | Persisting   | Saves preprocessor and data for modeling |
 
-This script ensures your ML pipeline uses **clean and consistently preprocessed data from your live database**, enabling more accurate and scalable predictions.
+This script ensures that the ML pipeline uses **clean and consistently preprocessed data from your live database**, enabling more accurate and scalable predictions.
 
 ---
 ---
@@ -518,7 +518,7 @@ def get_connection():
 
 ### ▶ Data Load Functions
 
-■  `load_data_from_sql()`
+#### 1. `load_data_from_sql()`
 
 ```python
 def load_data_from_sql():
@@ -534,7 +534,7 @@ def load_data_from_sql():
 - Returns the full table as a **pandas DataFrame**.
 - Used for full-table access, especially in EDA and preprocessing.
 
-■  `load_table_as_dataframe(table_name: str)`
+#### 2. `load_table_as_dataframe(table_name: str)`
 
 ```python
 def load_table_as_dataframe(table_name: str) -> pd.DataFrame:
@@ -560,7 +560,7 @@ def load_table_as_dataframe(table_name: str) -> pd.DataFrame:
 | `load_data_from_sql()`                | Loads all rows from `rental_data` table  |
 | `load_table_as_dataframe(table_name)` | Loads any given SQL table as a DataFrame |
 
-This file is essential for all your **SQL → Python workflows**, powering EDA, preprocessing, and model integration.
+This file is essential for all the **SQL → Python workflows**, powering EDA, preprocessing, and model integration.
 
 ---
 
