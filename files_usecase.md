@@ -882,7 +882,7 @@ best_model = min(results, key=lambda x: x["rmse"])
 | `models/knn_regressor_model.pkl`       | Trained KNN model                     |
 | `models/xgboost_model.pkl` (optional)  | Trained XGBoost model (if installed)  |
 | `models/lightgbm_model.pkl` (optional) | Trained LightGBM model (if installed) |
-| `models/best_model.pkl`                | 🚀 Best overall model (by RMSE)       |
+| `models/best_model.pkl`                | Best overall model (by RMSE)       |
 
 ---
 
@@ -947,7 +947,7 @@ This script **evaluates the performance** of the **best trained regression model
 | `data_split_sql.py`          | Loads data from SQL, cleans, encodes, splits into train/test, and saves as `.pkl`. |
 | `modeling.py`                | Trains a simple Linear Regression model.                                           |
 | `train_model_comparision.py` | Trains multiple models, compares them, and saves the best one.                     |
-| ✅ `evaluate_model.py`       | **Loads the best model and evaluates it on the test set.**                         |
+| `evaluate_model.py`       | **Loads the best model and evaluates it on the test set.**                         |
 
 ---
 
@@ -1041,7 +1041,7 @@ This script **generates visual plots** to assess how well the model performs in 
 | `modeling.py`                | Trains a simple model                                |
 | `train_model_comparision.py` | Trains and selects the best model                    |
 | `evaluate_model.py`          | Prints performance scores of best model              |
-| ✅ `visualize_results.py`    | **Visualizes model predictions and residual errors** |
+| `visualize_results.py`    | **Visualizes model predictions and residual errors** |
 
 ---
 
@@ -1123,7 +1123,7 @@ Or, in case of error:
 | ----------------------------------- | -------------------------------------------------------------- |
 | `models/best_model.pkl`             | Trained model                                                  |
 | `models/preprocessing_pipeline.pkl` | Pipeline with encoders, scalers, etc.                          |
-| `app.py`                            | ✅ Streamlit UI                                                |
+| `app.py`                            | Streamlit UI                                                |
 | `requirements.txt`                  | Should include `streamlit`, `joblib`, `pandas`, `scikit-learn` |
 
 ---
