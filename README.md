@@ -1,4 +1,4 @@
-# 🏙️ Rental Price Recommendation System for Urban Areas
+# Rental Price Recommendation System for Urban Areas
 
 A data-driven machine learning solution to **predict residential rental prices** in major Indian cities — **Delhi, Mumbai, and Pune** — based on features such as property area, square footage, type, furnishing status, and more.
 
@@ -6,35 +6,35 @@ A data-driven machine learning solution to **predict residential rental prices**
 
 ---
 
-## 📌 Overview
+## Overview
 
 With rising urban housing demand, accurately estimating fair rental prices is a major challenge. This project aims to simplify the process by using machine learning models trained on historical rental listings to predict monthly rent prices.
 
 ---
 
-## 🎯 Key Features
+## Key Features
 
-- 🔍 **EDA from MySQL Database**
+- **EDA from MySQL Database**
   Interactive and visual exploration of structured rental data.
 
-- 🧹 **Robust Preprocessing Pipeline**
+- **Robust Preprocessing Pipeline**
   Encoding, scaling, and imputing missing data using `scikit-learn` pipelines.
 
-- 🧠 **Model Training and Evaluation**
+- **Model Training and Evaluation**
   Comparison of multiple regression models to select the most accurate one.
 
-- 💾 **Reusable Model & Pipeline**
+- **Reusable Model & Pipeline**
   Models saved with `joblib` for seamless integration and deployment.
 
-- 🖥️ **Interactive Streamlit App**
+- **Interactive Streamlit App**
   User-friendly interface to predict rental prices from custom inputs.
 
-- 📈 **Visual Diagnostics**
+- **Visual Diagnostics**
   Plots for Actual vs Predicted prices and Residual error distribution.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Tool                    | Purpose                          |
 | ----------------------- | -------------------------------- |
@@ -48,7 +48,7 @@ With rising urban housing demand, accurately estimating fair rental prices is a 
 
 ---
 
-## 🗂️ Project Structure
+## Project Structure
 
 ```
 rental-price-recommender/
@@ -81,7 +81,7 @@ rental-price-recommender/
 
 ---
 
-## 🚀 Setup Instructions
+## Setup Instructions
 
 ```bash
 # 1. Clone the repository
@@ -108,19 +108,19 @@ streamlit run app.py
 
 ---
 
-## 📈 Results
+## Results
 
 | Model             | RMSE (₹)  | R² Score  |
 | ----------------- | --------- | --------- |
 | Linear Regression | 58,836.01 | 0.8946    |
-| Random Forest     | 36,676.88 | 0.9590 ✅ |
+| Random Forest     | 36,676.88 | 0.9590    |
 | Gradient Boosting | 45,168.99 | 0.9379    |
 | KNN Regressor     | 43,529.06 | 0.9423    |
 | XGBoost           | 40,364.53 | 0.9504    |
 | LightGBM          | 43,513.69 | 0.9424    |
 
-📊 **Best Performing Model:** Random Forest
-📉 **Mean Absolute Error (MAE):** ₹13,680.08
+**Best Performing Model:** Random Forest
+**Mean Absolute Error (MAE):** ₹13,680.08
 
 <div align="center">
 
@@ -131,7 +131,7 @@ streamlit run app.py
 
 ---
 
-## 🔍 Sample Prediction
+## Sample Prediction
 
 ```bash
 🏠 Area: Kothrud, Pune
@@ -144,7 +144,7 @@ streamlit run app.py
 
 ---
 
-## 🌐 Deployment Readiness
+## Deployment Readiness
 
 The project includes a deployable Streamlit app (`app.py`) for live predictions. It can be hosted on:
 
@@ -154,27 +154,16 @@ The project includes a deployable Streamlit app (`app.py`) for live predictions.
 
 ---
 
-## 📚 Future Enhancements
+## Future Enhancements
 
-- 🌍 Integrate **geospatial features** (e.g., proximity to metro, landmarks)
-- 🔁 Build **automated data update pipeline** (ETL)
-- 🧠 Add **Explainable AI** (SHAP, LIME) for model transparency
-- 🚀 Implement **CI/CD** for seamless updates and testing
-
----
-
-## 🙋‍♀️ About Me
-
-### **Aditi Agrawal**
-
-**Final-year Engineering Student** | Data Science & Web Dev Enthusiast
-Passionate about building ML-powered tools that solve real-world problems.
-
-🔗 [GitHub](https://github.com/Aditi-1304) • [LeetCode](https://leetcode.com/u/Aditi_786/) • [HackerRank](https://www.hackerrank.com/profile/aditi786aaa)
+- Integrate **geospatial features** (e.g., proximity to metro, landmarks)
+- Build **automated data update pipeline** (ETL)
+- Add **Explainable AI** (SHAP, LIME) for model transparency
+- Implement **CI/CD** for seamless updates and testing
 
 ---
 
-## ⚠️ Disclaimer
+## Disclaimer
 
 This project uses historical rental listing data available from Kaggle.
 **The predictions may not reflect the current real-estate market**, and should be used for educational or prototype purposes only. You can **retrain the model with newer datasets** to make the system more up-to-date.
